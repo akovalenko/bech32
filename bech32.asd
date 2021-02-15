@@ -5,8 +5,7 @@
   :licence "Public Domain"
   :serial t
   :default-component-class cl-source-file
-  :depends-on ("alexandria"
-	       "babel")
+  :depends-on ("alexandria")
   :components
   ((:static-file "README.md")
    (:file "bech32"))
@@ -21,3 +20,11 @@
   ((:file "bech32-test"))
   :perform (test-op (o c)
                     (uiop:symbol-call :fiveam '#:run! :bech32)))
+
+(asdf:defsystem :bech32/examples
+  :depends-on ("bech32"
+	       "babel")
+  :serial t
+  :default-component-class cl-source-file
+  :components
+  ((:file "example")))
